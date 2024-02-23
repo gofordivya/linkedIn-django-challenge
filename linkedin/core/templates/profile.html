@@ -9,6 +9,6 @@
     <p class="card-text">Name: </strong>: {{ user_profile.user.username }}</p>
     <p class="card-text">Email: </strong>: {{ user_profile.user.email }}</p>
     <p class="card-text">Job Title: </strong>: {{ user_profile.jobtitle }}</p>
-    <a href="{% url "core:index" %}" class="card-link">Back</a>
+    <a href="{% url "index" %}" class="card-link">Back</a>
   </div>
 {% endblock %}

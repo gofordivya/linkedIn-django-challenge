@@ -8,7 +8,7 @@
   <div class="card-body">
     <h5 class="card-title">Name: {{ member.user.username }}</h5>
     <p class="card-text">Job title: {{ member.jobtitle }}</p>
-    <a href="{% url 'core:profile' member.user.id %}" class="btn btn-primary">View Profile</a>
+    <a href="{% url 'profile' member.user.id %}" class="btn btn-primary">View Profile</a>
   </div>
 </div>
 {% endfor %}
