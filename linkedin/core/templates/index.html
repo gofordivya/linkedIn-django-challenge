@@ -1,0 +1,16 @@
+{% extends 'base.html' %}<!>
+{% block title %}Welcome{% endblock %}<!>
+{% block content %}
+
+<h2> LinkedIn members </h2>
+{% for member in members %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Name: {{ member.user.username }}</h5>
+    <p class="card-text">Job title: {{ member.jobtitle }}</p>
+    <a href="{% url 'core:profile' member.user.id %}" class="btn btn-primary">View Profile</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
