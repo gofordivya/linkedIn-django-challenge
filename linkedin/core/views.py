@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import alogout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 
 from .models import UserInfo
 
@@ -17,8 +16,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             jobtitle = form.cleaned_data['jobtitle']
-
-            user_profile, created = UserInfo.objects.get_or_create(
+            user_profile = UserInfo.objects.get_or_create(
                 user=user)
             user_profile.jobtitle = jobtitle
             user_profile.save()
@@ -34,7 +32,6 @@ def signup(request):
 @login_required
 def index(request):
     members = UserInfo.objects.all()
-    print(members)
     return render(request, 'index.html', {
         'members': members,
     })
